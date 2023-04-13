@@ -1,46 +1,27 @@
-const fs = require('fs/promises');
-
-const myFileWriter = async (fileName, fileContent) => {
-try {
-await fs.writeFile(fileName, fileContent);
-console.log(${fileName} has been created!);
-} catch (error) {
-console.error(Error creating ${fileName}: , error);
+const fs = require('fs/promises')
+const fName = "myfile.txt"
+const fContent = "I wrote someting'"
+const myFileWriter = async(fileName,fileContent) =>{
+	await fs.writeFile(fileName,fileContent)
 }
-};
+myFileWriter(fName,fContent)
 
-const myFileReader = async (fileName) => {
-try {
-const fileContent = await fs.readFile(fileName, 'utf-8');
-console.log(File content of ${fileName}: , fileContent);
-return fileContent;
-} catch (error) {
-console.error(Error reading ${fileName}: , error);
-}
-};
 
-const myFileUpdater = async (fileName, fileContent) => {
-try {
-const originalContent = await myFileReader(fileName);
-const updatedContent = originalContent + fileContent;
-await fs.writeFile(fileName, updatedContent);
-console.log(${fileName} has been updated!);
-} catch (error) {
-console.error(Error updating ${fileName}: , error);
+const myFileReader = async (fileName) =>{
+	const content = await fs.readFile(fileName)
+	return content.toString();
 }
-};
+myFileReader(fName).then(a=>console.log(a))
+
+const myFileUpdater = async (fileName,fileContent) => {
+	return await fs.appendFile(fileName,fileContent)
+}
+myFileUpdater(fName,"\nnew content")
 
 const myFileDeleter = async (fileName) => {
-try {
-await fs.unlink(fileName);
-console.log(${fileName} has been deleted!);
-} catch (error) {
-console.error(Error deleting ${fileName}: , error);
+	return await fs.unlink(fileName)
 }
-};
-
-module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter };
-
+myyFileDeleter(fName)
 
 
 
