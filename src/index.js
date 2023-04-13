@@ -21,7 +21,7 @@ myFileUpdater(fName,"\nnew content")
 const myFileDeleter = async (fileName) => {
 	return await fs.unlink(fileName)
 }
-myyFileDeleter(fName)
+myFileDeleter(fName)
 
 
 
