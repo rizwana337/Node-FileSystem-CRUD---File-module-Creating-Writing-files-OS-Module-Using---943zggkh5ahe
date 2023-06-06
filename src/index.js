@@ -21,35 +21,10 @@ myFileUpdater(fName,"\nnew content")
 const myFileDeleter = async (fileName) => {
 	return await fs.unlink(fileName)
 }
-myFileDeleter(fName)
+//myyFileDeleter(fName)
 
 
 
 
 
-// const fs = require('fs/promises')
-
-// const myFileWriter = async (fileName, fileContent) => {
-// 	// write code here
-// 	// dont chnage function name
-// }
-
-// const myFileReader = async (fileName) => {
-// 	// write code here
-// 	// dont chnage function name
-// }
-
-
-// const myFileUpdater = async (fileName, fileContent) => {
-// 	// write code here
-// 	// dont chnage function name
-// }
-
-// const myFileDeleter = async (fileName) => {
-// 	// write code here
-// 	// dont chnage function name
-// }
-
-
-
-// module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
+module.exports = { myFileWriter, myFileUpdater, myFileReader, myFileDeleter }
